@@ -3,6 +3,7 @@ const passwordInputEL = document.getElementById("password");
 const loginFormEl = document.getElementById("form-login");
 const registrationForm = document.getElementById("form-registration");
 const successPage = document.getElementById("success");
+const passwordInputEl = document.getElementById("password");
 
 const FAKE_USER = {
   email: "example@gmail.com",
@@ -22,12 +23,13 @@ loginFormEl.addEventListener("submit", function (e) {
 
   if (!emailInputEl.value && !passwordInputEL.value) return;
 
-  if (
-    typeof emailInputEl.value === "string" &&
-    typeof FAKE_USER.password === "string"
-  ) {
+  if (emailInputEl.value.length > 5 && passwordInputEl.value.length > 8) {
     hidePage(loginFormEl);
     showPage(registrationForm);
+  } else {
+    alert("Invalid email or password. Try again🙃");
+    emailInputEl.value = "";
+    passwordInputEL.value = ""
   }
 });
 
