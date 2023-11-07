@@ -23,13 +23,15 @@ loginFormEl.addEventListener("submit", function (e) {
 
   if (!emailInputEl.value && !passwordInputEL.value) return;
 
-  if (emailInputEl.value.length > 5 && passwordInputEl.value.length > 8) {
-    hidePage(loginFormEl);
-    showPage(registrationForm);
-  } else {
-    alert("Invalid email or password. Try again🙃");
-    emailInputEl.value = "";
-    passwordInputEL.value = ""
+  if (emailInputEl.value.length > 5) {
+    if (passwordInputEl.value.length > 6) {
+      hidePage(loginFormEl);
+      showPage(registrationForm);
+    }else{
+      alert("Try a stronger password🙃");
+      emailInputEl.value = "";
+      passwordInputEL.value = "";
+    }
   }
 });
 
