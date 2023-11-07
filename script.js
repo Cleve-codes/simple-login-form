@@ -24,10 +24,16 @@ loginFormEl.addEventListener("submit", function (e) {
   if (!emailInputEl.value && !passwordInputEL.value) return;
 
   if (emailInputEl.value.length > 5) {
+    if (!passwordInputEl.value) {
+      alert("Please input a password");
+      emailInputEl.value = "";
+      passwordInputEL.value = "";
+      return;
+    }
     if (passwordInputEl.value.length > 6) {
       hidePage(loginFormEl);
       showPage(registrationForm);
-    }else{
+    } else {
       alert("Try a stronger password🙃");
       emailInputEl.value = "";
       passwordInputEL.value = "";
